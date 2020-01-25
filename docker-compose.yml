@@ -5,8 +5,10 @@ services:
     image: jwilder/nginx-proxy:0.4.0
     ports:
       - "10080:80"
+      - "10443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./certs:/etc/nginx/certs
   whoami:
     image: jwilder/whoami
     environment:
